@@ -1,0 +1,378 @@
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --secondary: #64748b;
+  --background: #f8fafc;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(255, 255, 255, 0.5);
+  --shadow-sm:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-md:
+    0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  --shadow-lg:
+    0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  padding-top: 70px;
+  padding-bottom: 80px;
+  background: #f1f5f9;
+  color: #1e293b;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #ffffff !important; /* Trắng tinh 100% */
+  border-bottom: 1px solid #e2e8f0; /* Viền xám nhạt dứt khoát */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); /* Đổ bóng nhẹ tách khỏi nền */
+  transition: all 0.3s;
+  height: 50px;
+  font-size: 16px; /* Tăng từ 13px lên 14px */
+}
+
+.dropdown-menu {
+  border-radius: 12px;
+  animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* SIDEBAR */
+.sidebar {
+  height: calc(100vh - 70px);
+  background: #ffffff; /* Trắng tinh 100% */
+  position: fixed;
+  width: 260px;
+  top: 70px;
+  left: 0;
+  padding: 20px 0;
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1030;
+  border-right: 1px solid #e2e8f0;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.03); /* Đổ bóng sang phải */
+}
+
+.sidebar a {
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  padding: 16px 24px; /* Tăng khoảng cách trên dưới */
+  text-decoration: none !important;
+  font-size: 16px; /* Tăng chữ từ 15px lên 20px */
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  margin: 4px 12px;
+  border-radius: 10px;
+}
+
+.sidebar a i {
+  width: 30px; /* Tăng không gian chứa icon */
+  font-size: 20px; /* Tăng icon từ 16px lên 20px */
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  color: var(--primary);
+  background: rgba(79, 70, 229, 0.08);
+}
+
+.sidebar a.active::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 0 4px 4px 0;
+}
+
+/* MAIN */
+.main {
+  margin-left: 260px;
+  padding: 30px;
+  transition: all 0.4s ease;
+}
+
+.bg-glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+}
+
+/* CARDS */
+.card-box {
+  padding: 24px;
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.card-box:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 20px var(--hover-shadow);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.card-info {
+  z-index: 2;
+  width: 100%;
+}
+
+.card-box h4 {
+  font-size: 16px; /* Tăng từ 15px lên 16px */
+  font-weight: 600;
+  color: var(--secondary);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-box h2 {
+  font-weight: 800;
+  font-size: 42px; /* Tăng từ 36px lên 42px cho hoành tráng */
+  margin: 0;
+  color: #0f172a;
+}
+
+.icon-wrapper {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  font-size: 100px;
+  transform: translate(20%, 20%);
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.card-box:hover .icon-wrapper {
+  transform: translate(10%, 10%) scale(1.1);
+  opacity: 0.15;
+}
+
+.bg-blue {
+  --hover-shadow: rgba(59, 130, 246, 0.2);
+}
+
+.bg-blue .icon-wrapper {
+  color: #3b82f6;
+}
+
+.bg-green {
+  --hover-shadow: rgba(16, 185, 129, 0.2);
+}
+
+.bg-green .icon-wrapper {
+  color: #10b981;
+}
+
+.bg-orange {
+  --hover-shadow: rgba(245, 158, 11, 0.2);
+}
+
+.bg-orange .icon-wrapper {
+  color: #f59e0b;
+}
+
+.bg-red {
+  --hover-shadow: rgba(239, 68, 68, 0.2);
+}
+
+.bg-red .icon-wrapper {
+  color: #ef4444;
+}
+
+.badge {
+  font-weight: 500;
+  padding: 6px 10px;
+}
+
+/* TABLE */
+.search-bar .form-control:focus,
+.search-bar .input-group-text {
+  border-color: var(--primary) !important;
+  box-shadow: none !important;
+}
+
+.table > :not(caption) > * > * {
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  box-shadow: none !important;
+}
+
+.table thead th {
+  color: #64748b;
+  font-size: 14px; /* Tăng từ 13px lên 14px */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 16px;
+  background: rgba(248, 250, 252, 0.6) !important;
+  border-bottom: none !important;
+}
+
+.table tbody td {
+  padding: 16px;
+  color: #334155;
+  font-size: 15px; /* Thêm size rõ ràng cho nội dung bảng */
+  vertical-align: middle;
+}
+
+.table-hover tbody tr {
+  transition: all 0.2s ease;
+}
+
+.table-hover tbody tr:hover {
+  background: rgba(255, 255, 255, 0.6) !important;
+  transform: scale(1.005);
+}
+
+.action-btn {
+  border-radius: 8px;
+  transition: all 0.2s;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-title,
+.btn-primary {
+  animation: fadeUp 0.4s ease forwards;
+}
+
+.row > div:nth-child(1) {
+  animation: fadeUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.row > div:nth-child(2) {
+  animation: fadeUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.row > div:nth-child(3) {
+  animation: fadeUp 0.7s ease forwards;
+  opacity: 0;
+}
+
+.row > div:nth-child(4) {
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.bg-glass {
+  animation: fadeUp 0.9s ease forwards;
+  opacity: 0;
+}
+
+/* FOOTER */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 50px;
+  padding: 10px 0;
+  background: #f6f6f6; /* Trắng tinh */
+  color: var(--secondary);
+  z-index: 1030;
+  font-size: 14px; /* Tăng từ 13px lên 14px */
+  border-top: 1px solid #e2e8f0;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.02);
+  display: flex;
+  align-items: center;
+}
+
+footer > div {
+  width: 100%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 991px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .search-bar {
+    width: 50% !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .search-bar {
+    width: 100% !important;
+    margin-top: 10px;
+  }
+
+  .bg-glass > .d-flex {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+
+  .row > div {
+    margin-bottom: 10px;
+  }
+
+  .card-box {
+    margin-bottom: 0;
+  }
+}

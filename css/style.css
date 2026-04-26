@@ -1,0 +1,354 @@
+#bannerImage {
+  padding-top: 75px;
+  margin-top: 0px;
+  padding-bottom: 50px;
+  margin-bottom: 60px;
+  text-align: center;
+  color: #fff;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../img/banner1.jpg) no-repeat center center;
+  background-size: cover;
+  height: 400px;
+}
+
+#bannerContent {
+  position: relative;
+  margin: auto;
+  margin-top: 100px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  max-width: 500px;
+  border-radius: 10px;
+}
+#bannerContent h1 {
+  font-weight: bold;
+}
+
+#bannerContent p {
+  font-size: 16px;
+}
+
+/* ===== BANNER TRANG SẢN PHẨM ===== */
+.product-banner {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../img/product_banner.jpg") no-repeat center center;
+  background-size: cover;
+  height: 250px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-banner .banner-content {
+  padding: 0 20px;
+}
+
+.product-banner h1 {
+  font-weight: 800;
+  font-size: 36px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.product-banner p {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+footer {
+  background-color: #efedeb;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+@media (min-width: 320px) {
+  #autoResize {
+    font-size: 12px;
+  }
+}
+@media (min-width: 481px) {
+  #autoResize {
+    font-size: 16px;
+  }
+}
+@media (min-width: 641px) {
+  #autoResize {
+    font-size: 18px;
+  }
+}
+@media (min-width: 961px) {
+  #autoResize {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1000px) {
+  #autoResize {
+    font-size: 26px;
+  }
+}
+/* ===== THANH HEADER ===== */
+.navbar {
+  background-color: #fefefe !important;
+  border-bottom: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 5px 0;
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  z-index: 1050 !important;
+  transition: top 0.3s ease-in-out;
+}
+
+body {
+  padding-top: 60px;
+  background-color: #fefefc;
+}
+
+.navbar .navbar-nav > li > a,
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus,
+.navbar .navbar-nav > .active > a,
+.navbar .navbar-nav > .active > a:hover {
+  color: #000000 !important;
+  background-color: transparent !important;
+}
+
+.navbar .navbar-nav > li > a span,
+.navbar .navbar-nav > li > a:hover span,
+.navbar .navbar-nav > li > a:focus span,
+.navbar .navbar-nav > li > a i,
+.navbar .navbar-nav > li > a:hover i,
+.navbar .navbar-nav > li > a:focus i {
+  color: #000000 !important;
+}
+
+/* ===== TÊN THƯƠNG HIỆU ===== */
+.navbar-brand {
+  color: #111111 !important;
+  font-weight: 800;
+  font-size: 24px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+/* THANH TÌM KIẾM  */
+.navbar-form .form-control {
+  border-radius: 20px 0 0 20px;
+  border: 1px solid #e0e0e0;
+  border-right: none;
+  box-shadow: none;
+  padding-left: 20px;
+  width: 500px !important;
+}
+
+.navbar-form .form-control:focus {
+  border-color: #d9534f;
+  box-shadow: 0 0 0 2px rgba(217, 83, 79, 0.1);
+}
+
+/*NÚT TÌM KIẾM*/
+.navbar-form .btn {
+  border-radius: 0 20px 20px 0;
+  background-color: #d9534f;
+  color: white;
+  border: 1px solid #d9534f;
+  box-shadow: none;
+  padding: 6px 25px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.navbar-form .btn:hover {
+  background-color: #c9302c;
+  border-color: #c9302c;
+}
+/* DANH MỤC */
+.thumbnail {
+  background-color: #ffffff !important;
+  border: none !important;
+  border-radius: 16px !important;
+  padding: 25px 15px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.thumbnail:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 15px 35px rgba(231, 76, 60, 0.15) !important;
+}
+
+.thumbnail h3 {
+  font-weight: 800;
+  color: #2c3e50;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.thumbnail p {
+  color: #7f8c8d;
+  font-size: 14px;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* ===== GIAO DIỆN FORM CHANGE PASSWORD ===== */
+.setting-card {
+  background: #ffffff;
+  padding: 40px 35px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+.setting-card label {
+  font-size: 14px;
+  color: black;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.custom-input {
+  height: 48px !important;
+  border-radius: 8px !important;
+  border: 1.5px solid #e2e8f0;
+  box-shadow: none !important;
+  font-size: 15px;
+  padding-left: 15px;
+  transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+  border-color: #e74c3c;
+  background-color: #fffaf9;
+}
+
+/* Nút bấm nổi bật */
+.custom-btn {
+  height: 48px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #e74c3c;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+/* ===== KHU VỰC KHUYẾN MÃI (PROMO BANNER) ===== */
+.promo-section {
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.promo-banner {
+  background:
+    linear-gradient(to right, rgba(231, 76, 60, 0.95), rgba(192, 57, 43, 0.85)),
+    url("../img/promo-bg.jpg") no-repeat center center;
+  background-size: cover;
+  border-radius: 20px;
+  padding: 60px 40px;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 15px 35px rgba(231, 76, 60, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.promo-banner:hover {
+  transform: translateY(-5px);
+}
+
+.promo-banner h3 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: #ffd700;
+}
+
+.promo-banner h2 {
+  font-size: 42px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.promo-banner p {
+  font-size: 18px;
+  margin-bottom: 35px;
+  opacity: 0.95;
+}
+
+.btn-promo {
+  background-color: #ffffff;
+  color: #e74c3c;
+  font-weight: 800;
+  font-size: 18px;
+  padding: 14px 40px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  border: none;
+}
+
+.btn-promo:hover {
+  background-color: #ffebeb;
+  color: #c0392b;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+/* ===== CSS CHO BANNER TRƯỢT ===== */
+.custom-banner-img {
+  width: 100% !important;
+  height: 450px !important;
+  object-fit: contain !important;
+  background-color: #d6bfbf;
+}
+
+.carousel-indicators li {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 5px;
+  border: 2px solid #fff;
+}
+
+.carousel-indicators .active {
+  background-color: #e74c3c;
+  border-color: #e74c3c;
+  width: 14px;
+  height: 14px;
+}
