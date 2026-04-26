@@ -47,6 +47,7 @@ $recent_orders_result = mysqli_query($con, $query_recent_orders);
 
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/VS_Model.jpg" type="image/x-icon" />
     <title>Premium Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

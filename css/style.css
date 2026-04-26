@@ -168,7 +168,7 @@ body {
 
 /*NÚT TÌM KIẾM*/
 .navbar-form .btn {
-  border-radius: 0 25px 25px 0 !important; /* Tăng độ bo tròn cho mượt */
+  border-radius: 0 25px 25px 0 !important;
   background: linear-gradient(
     45deg,
     #ff416c,
@@ -176,7 +176,7 @@ body {
   ) !important; /* Dải màu trendy */
   color: white !important;
   border: none !important; /* Loại bỏ viền cứng cáp */
-  box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3) !important; /* Đổ bóng phát sáng màu đỏ */
+  box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3) !important;
   padding: 7px 25px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -184,11 +184,7 @@ body {
 }
 
 .navbar-form .btn:hover {
-  background: linear-gradient(
-    45deg,
-    #ff4b2b,
-    #ff416c
-  ) !important; /* Đảo ngược dải màu khi rê chuột */
+  background: linear-gradient(45deg, #ff4b2b, #ff416c) !important;
   box-shadow: 0 6px 20px rgba(255, 75, 43, 0.4) !important;
 }
 /* DANH MỤC */

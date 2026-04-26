@@ -9,9 +9,13 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="index.php" style="display: flex; align-items: center;">
-    <span style="font-weight: 900; font-size: 26px; fon color: #111;">VS Model</span>
-            </a>
+            <a class="navbar-brand" href="index.php" style="display: flex; align-items: center; padding: 0 15px; height: 50px;">
+    
+    <img src="img/VS_Model.jpg" alt="Logo" style="height: 35px; width: auto; margin-right: 10px; object-fit: contain;">
+    
+    <span style="font-weight: 900; font-size: 26px; font-style: italic; color: #111;">VS Model</span>
+
+</a>
         </div>
 
         <div class="collapse navbar-collapse" id="myNavbar">

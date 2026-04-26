@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/VS_Model.jpg" type="image/x-icon" />
     <title>Thêm sản phẩm mới - Admin</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css" type="text/css">
