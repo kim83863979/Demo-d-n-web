@@ -27,6 +27,7 @@ session_start();
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
 
     <div class="carousel-inner">
@@ -40,6 +41,10 @@ session_start();
 
         <div class="item">
             <img src="img/banner2.jpg" alt="Banner 2" class="custom-banner-img">
+        </div>
+
+         <div class="item">
+            <img src="img/banner3.jpg" alt="Banner 3" class="custom-banner-img">
         </div>
     </div>
 
