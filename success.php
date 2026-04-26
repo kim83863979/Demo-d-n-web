@@ -57,14 +57,6 @@
                     </div>
                 </div>
             </div>
-            <footer class="footer">
-               <div class="container">
-               <center>
-                   <p>Copyright &copy VS Model. All Rights Reserved. | Contact Us: +84 00000 00000</p>
-                   <p>This website is developed by Nhom 6 Lap Trinh Web</p>
-               </center>
-               </div>
-           </footer>
         </div>
     </body>
 </html>
