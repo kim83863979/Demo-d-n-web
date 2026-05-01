@@ -5,8 +5,13 @@
 
 I. THÔNG TIN CHUNG
 - Nhóm thực hiện: Nhóm 6
-- Sinh viên đại diện: Phạm Trung Việt - MSSV: [Điền MSSV của bạn]
-- Các thành viên khác: [Điền tên các bạn trong nhóm]
+- Sinh viên đại diện nộp bài: Lê Quốc Kim        MSSV: 054206002957
+- Các thành viên khác: 
+TRẦN THỊ CẨM TÚ               MSSV: 068306000340
+TẠ THỊ NHƯ NGỌC               MSSV: 077306005496
+PHẠM NGUYỄN BÌNH AN           MSSV: 051206002496
+HUỲNH NGUYỄN BẢO LONG         MSSV: 077205002692
+LÊ THỊ BÍCH THÙY              MSSV: 052306012384
 - Môn học: Lập trình Web
 - Đề tài: Xây dựng website bán hàng thời trang VS Model.
 
