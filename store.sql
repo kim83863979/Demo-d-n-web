@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 01, 2026 lúc 03:45 AM
+-- Thời gian đã tạo: Th5 01, 2026 lúc 03:43 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -74,7 +74,78 @@ INSERT INTO `items` (`id`, `name`, `price`, `discount_price`, `category`, `image
 (31, 'Áo Thun Đỏ In Chữ Sau Lưng', 290000, 0, 'T-Shirt', '31.jpg'),
 (32, 'Áo Thun Hồng Tím Pastel', 260000, 195000, 'T-Shirt', '32.jpg'),
 (36, 'Áo Nỉ Xanh Biển', 340000, 0, 'Jacket', 'Áo Khoác Nỉ.jpg'),
-(37, 'Áo Hoodie Zip', 399000, 0, 'Jacket', 'Áo Hoodie Zip.jpg');
+(37, 'Áo Hoodie Zip', 399000, 0, 'Jacket', 'Áo Hoodie Zip.jpg'),
+(38, 'Quần kaki Cam', 780000, 0, 'Pants', 'Quần kaki dài nam.jpg'),
+(39, 'Quần thun nam', 210000, 0, 'Pants', 'Quần thun nam.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `total_amount` int(11) NOT NULL,
+  `payment_method` varchar(50) NOT NULL,
+  `status` varchar(50) DEFAULT 'Pending',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `total_amount`, `payment_method`, `status`, `created_at`) VALUES
+(2, 5, 1500000, 'COD', 'Cancelled', '2026-05-01 07:45:21'),
+(3, 5, 720000, 'COD', 'Cancelled', '2026-05-01 07:46:42'),
+(4, 5, 860000, 'COD', 'Cancelled', '2026-05-01 07:51:40'),
+(5, 5, 520000, 'COD', 'Cancelled', '2026-05-01 07:55:09'),
+(6, 5, 520000, 'COD', 'Cancelled', '2026-05-01 07:55:46'),
+(7, 5, 490000, 'COD', 'Cancelled', '2026-05-01 07:55:55'),
+(8, 5, 380000, 'COD', 'Cancelled', '2026-05-01 07:56:16'),
+(9, 5, 340000, 'COD', 'Ordered COD', '2026-05-01 07:58:50'),
+(10, 5, 490000, 'COD', 'Ordered COD', '2026-05-01 07:58:56'),
+(11, 5, 220000, 'COD', 'Cancelled', '2026-05-01 07:59:03'),
+(12, 5, 380000, 'COD', 'Ordered COD', '2026-05-01 13:34:24');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `order_details`
+--
+
+CREATE TABLE `order_details` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `size` varchar(10) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `order_details`
+--
+
+INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `size`, `quantity`, `price`) VALUES
+(1, 1, 29, 'M', 1, 300000),
+(2, 2, 23, 'M', 1, 280000),
+(3, 2, 27, 'XL', 1, 320000),
+(4, 2, 6, 'M', 1, 900000),
+(5, 3, 19, 'M', 1, 380000),
+(6, 3, 36, 'L', 1, 340000),
+(7, 4, 28, 'S', 1, 380000),
+(8, 4, 14, 'M', 1, 480000),
+(9, 5, 21, 'S', 1, 520000),
+(10, 6, 21, 'M', 1, 520000),
+(11, 7, 17, 'S', 1, 490000),
+(12, 8, 28, 'XL', 1, 380000),
+(13, 9, 36, 'L', 1, 340000),
+(14, 10, 17, 'S', 1, 490000),
+(15, 11, 24, 'S', 1, 220000),
+(16, 12, 19, 'M', 1, 380000);
 
 -- --------------------------------------------------------
 
@@ -101,8 +172,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `contact`, `city`, `addr
 (1, 'Sajal', 'sajal.agrawal1997@gmail.com', '57f231b1ec41dc6641270cb09a56f897', '8899889988', 'Indore', '100 palace colony, Indore', 1),
 (2, 'Ram', 'ram1234@xyz.com', '57f231b1ec41dc6641270cb09a56f897', '8899889989', 'Pune', '100 palace colony, Pune', 0),
 (3, 'Shyam', 'shyam@xyz.com', '57f231b1ec41dc6641270cb09a56f897', '8899889990', 'Bangalore', '100 palace colony, Bangalore', 0),
-(0, 'Lê Thanh Long', 'long@gmail.com', '14e1b600b1fd579f47433b88e8d85291', '1023333333', 'hcm', 'hcm', 1),
-(0, 'Minh', 'minh@gmail.com', '70873e8580c9900986939611618d7b1e', '123222222222', 'hà n?i', 'hà n?i', 0);
+(4, 'Lê Thanh Long', 'long@gmail.com', 'afa1d412b30254c973985a2773fb8854', '0234560000', 'hcm', 'hcm', 1),
+(5, 'Minh', 'minh@gmail.com', '70873e8580c9900986939611618d7b1e', '01111111111111', 'hà n?i', 'hà n?i', 0);
 
 -- --------------------------------------------------------
 
@@ -119,7 +190,7 @@ CREATE TABLE `users_items` (
   `quantity` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-
+--
 -- Chỉ mục cho các bảng đã đổ
 --
 
@@ -127,6 +198,24 @@ CREATE TABLE `users_items` (
 -- Chỉ mục cho bảng `items`
 --
 ALTER TABLE `items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `order_details`
+--
+ALTER TABLE `order_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `users`
+--
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -143,13 +232,31 @@ ALTER TABLE `users_items`
 -- AUTO_INCREMENT cho bảng `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT cho bảng `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT cho bảng `order_details`
+--
+ALTER TABLE `order_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT cho bảng `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `users_items`
 --
 ALTER TABLE `users_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
