@@ -26,7 +26,7 @@ III. TÀI KHOẢN TEST
 
 1. TÀI KHOẢN ADMIN (Quyền Quản trị viên cao nhất):
    - Email: long@gmail.com   
-   - Mật khẩu: 123456          
+   - Mật khẩu: 123456        
    => Chức năng test: Xem báo cáo, Thêm/Xem/Sửa/Xóa sản phẩm.
 
 2. TÀI KHOẢN KHÁCH HÀNG (User):
