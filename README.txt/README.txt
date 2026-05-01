@@ -5,7 +5,7 @@
 
 I. THÔNG TIN CHUNG
 - Nhóm thực hiện: Nhóm 6
-- Sinh viên đại diện nộp bài: Lê Quốc Kim        MSSV: 054206002957
+- Sinh viên đại diện nộp bài: LÊ QUỐC KIM        MSSV: 054206002957
 - Các thành viên khác: 
 TRẦN THỊ CẨM TÚ               MSSV: 068306000340
 TẠ THỊ NHƯ NGỌC               MSSV: 077306005496
@@ -27,7 +27,7 @@ III. TÀI KHOẢN TEST
 1. TÀI KHOẢN ADMIN (Quyền Quản trị viên cao nhất):
    - Email: long@gmail.com   
    - Mật khẩu: 123456          
-   => Chức năng test: Quản lý kho, Thêm/Sửa/Xóa sản phẩm.
+   => Chức năng test: Xem báo cáo, Thêm/Xem/Sửa/Xóa sản phẩm.
 
 2. TÀI KHOẢN KHÁCH HÀNG (User):
    - Email: minh@gmail.com

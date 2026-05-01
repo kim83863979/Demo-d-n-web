@@ -35,14 +35,16 @@ if($no_of_user_products == 0){
     }
 }
 
-$ordered_products_query = "SELECT ut.id AS order_id, it.id AS item_id, it.name, it.price, ut.quantity, ut.status
-                          FROM users_items ut
-                          INNER JOIN items it ON it.id = ut.item_id
-                          WHERE ut.user_id = '$user_id' AND ut.status IN ('Ordered COD','Ordered MoMo','Confirmed', 'Cancelled')
-                          ORDER BY ut.id DESC";
+$ordered_products_query = "SELECT o.id AS order_id, it.id AS item_id, it.name, od.price, od.quantity, o.status
+                           FROM orders o
+                           INNER JOIN order_details od ON o.id = od.order_id
+                           INNER JOIN items it ON it.id = od.product_id
+                           WHERE o.user_id = '$user_id'
+                           ORDER BY o.id DESC";
 $ordered_products_result = mysqli_query($con, $ordered_products_query) or die(mysqli_error($con));
 $ordered_products = [];
 while ($ordered_row = mysqli_fetch_array($ordered_products_result)) {
+    // Tính thành tiền từng món
     $ordered_row['line_total'] = ((int)$ordered_row['price']) * ((int)$ordered_row['quantity']);
     $ordered_products[] = $ordered_row;
 }
@@ -169,7 +171,7 @@ while ($ordered_row = mysqli_fetch_array($ordered_products_result)) {
                                 <?php if ($ordered_row['status'] == 'Cancelled') { ?>
                                     <button class="btn btn-default btn-sm" disabled style="color: #999;">Đã hủy</button>
                                 <?php } else { ?>
-                                    <a href="order_cancel.php?id=<?= (int)$ordered_row['order_id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn hủy đơn hàng này?');">Hủy đơn</a>
+                                    <a href="order_cancel.php?id=<?= (int)$ordered_row['order_id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn HỦY TOÀN BỘ hóa đơn này không?');">Hủy đơn</a>
                                 <?php } ?>
                             </td>
                         </tr>

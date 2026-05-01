@@ -8,22 +8,23 @@ if(!isset($_SESSION['email']) || $_SESSION['role'] != 1){
 
 require 'connection.php';
 
+// 1. Tổng số sản phẩm
 $query_products = "SELECT COUNT(id) AS total FROM items";
 $result_products = mysqli_query($con, $query_products);
 $total_products = mysqli_fetch_assoc($result_products)['total'] ?? 0;
 
+// 2. Tổng số khách hàng
 $query_customers = "SELECT COUNT(id) AS total FROM users WHERE role = 0";
 $result_customers = mysqli_query($con, $query_customers);
 $total_customers = mysqli_fetch_assoc($result_customers)['total'] ?? 0;
 
-$query_orders = "SELECT COUNT(id) AS total FROM users_items WHERE status IN ('Ordered COD', 'Ordered MoMo')";
+// 3. Đếm tổng số đơn hàng (Từ bảng orders mới)
+$query_orders = "SELECT COUNT(id) AS total FROM orders";
 $result_orders = mysqli_query($con, $query_orders);
 $total_orders = mysqli_fetch_assoc($result_orders)['total'] ?? 0;
 
-$query_revenue = "SELECT SUM(it.price * ut.quantity) AS total 
-                  FROM users_items ut 
-                  INNER JOIN items it ON ut.item_id = it.id 
-                  WHERE ut.status IN ('Ordered COD', 'Ordered MoMo')";
+// 4. Tính tổng doanh thu (Từ bảng orders, loại trừ đơn đã hủy)
+$query_revenue = "SELECT SUM(total_amount) AS total FROM orders WHERE status != 'Cancelled'";
 $result_revenue = mysqli_query($con, $query_revenue);
 $total_revenue = mysqli_fetch_assoc($result_revenue)['total'] ?? 0;
 
@@ -32,13 +33,18 @@ if ($total_revenue >= 1000000) {
     $formatted_revenue = round($total_revenue / 1000000, 1) . 'tr';
 }
 
-// lấy dữ liệu các đơn hàng mới nhất
-$query_recent_orders = "SELECT ut.id, u.name as customer_name, it.name as item_name, ut.status 
-                        FROM users_items ut 
-                        INNER JOIN users u ON ut.user_id = u.id 
-                        INNER JOIN items it ON ut.item_id = it.id 
-                        WHERE u.role = 0 
-                        ORDER BY ut.id DESC LIMIT 5";
+// 5. Lấy dữ liệu các đơn hàng mới nhất (Kết nối 4 bảng: orders, users, order_details, items)
+$query_recent_orders = "SELECT 
+                            o.id, 
+                            u.name as customer_name, 
+                            GROUP_CONCAT(it.name SEPARATOR ', ') as item_name, 
+                            o.status 
+                        FROM orders o 
+                        INNER JOIN users u ON o.user_id = u.id 
+                        INNER JOIN order_details od ON o.id = od.order_id 
+                        INNER JOIN items it ON od.product_id = it.id 
+                        GROUP BY o.id 
+                        ORDER BY o.id DESC LIMIT 5";
 $recent_orders_result = mysqli_query($con, $query_recent_orders);
 ?>
 
@@ -131,7 +137,7 @@ $recent_orders_result = mysqli_query($con, $query_recent_orders);
                     <div class="icon-wrapper"><i class="fa-solid fa-wallet"></i></div>
                     <div class="card-info">
                         <h4>Doanh thu</h4>
-                        <h2><?= $formatted_revenue ?></h2>
+                        <h2><?= $formatted_revenue ?> VNĐ</h2>
                     </div>
                 </div>
             </div>
@@ -175,7 +181,7 @@ $recent_orders_result = mysqli_query($con, $query_recent_orders);
                 Contact Us: +91 90000 00000
             </p>
             <p class="m-0 mt-1 text-muted" style="font-size: 13px;">
-                This website is developed Nhom 6 Lap Trinh Web
+                This website is developed by Nhom 6 Lap Trinh Web
             </p>
         </div>
     </footer>

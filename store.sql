@@ -119,25 +119,7 @@ CREATE TABLE `users_items` (
   `quantity` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Đang đổ dữ liệu cho bảng `users_items`
---
 
-INSERT INTO `users_items` (`id`, `user_id`, `item_id`, `size`, `status`, `quantity`) VALUES
-(1, 0, 14, 'S', 'Cancelled', 1),
-(4, 0, 25, 'M', 'Cancelled', 1),
-(5, 0, 3, 'M', 'Ordered COD', 1),
-(6, 0, 6, 'M', 'Cancelled', 1),
-(7, 0, 12, 'L', 'Cancelled', 1),
-(8, 0, 14, 'M', 'Cancelled', 1),
-(10, 0, 21, 'M', 'Ordered COD', 1),
-(11, 0, 24, 'S', 'Ordered COD', 1),
-(24, 0, 22, 'XL', 'Cancelled', 3),
-(25, 0, 4, 'M', 'Ordered COD', 1),
-(26, 0, 17, 'M', 'Added to cart', 1),
-(27, 0, 6, 'XL', 'Added to cart', 1);
-
---
 -- Chỉ mục cho các bảng đã đổ
 --
 
